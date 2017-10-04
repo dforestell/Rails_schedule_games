@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 		@user = User.new(registration_params)
 		if @user.save
 			session[:id] = @user.id
-			redirect to 'games/available'
+			redirect_to '/games/available'
 		else
 			render 'new'
 		end
