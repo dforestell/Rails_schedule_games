@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>GameScheduling</title>
-    <%= csrf_meta_tags %>
+<head>
+	<title>GameScheduling</title>
+	<%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<nav>
+	<%  unless request.path_info == '/'  %>
+	<a href="/">Home</a> &nbsp;
+
+	<% end %>
+	<% if logged_in? %>
+	<a href="/users/<%= current_user.id%>">Hi, <%=current_user.full_name%></a> &nbsp;
+	<a href="/games/available">Available Games</a> &nbsp;
+	<a href="/games/new">Host A Game</a> &nbsp;
+	<form method="POST" action="/sessions">
+		<input type="hidden" name="_method" value="DELETE">
+		<input id="logout" type="submit" value="Log Out">
+	</form>
+
+	<% else %>
+	<a href="/sessions/new">Log In</a> &nbsp;
+	<a href="/users/new">Register</a></form>
+	<% end %>
+
+</nav>
+
+<body>
+	<%= yield %>
+</body>
 </html>

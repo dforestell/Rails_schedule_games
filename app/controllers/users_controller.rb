@@ -18,4 +18,9 @@ class UsersController < ApplicationController
 
 	end
 
+	private
+
+	def registration_params
+		params.require(:user).permit(:full_name, :email, :team_name, :password)
+	end
 end	
