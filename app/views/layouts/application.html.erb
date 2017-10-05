@@ -9,22 +9,18 @@
 </head>
 
 <nav>
-	<%  unless request.path_info == '/'  %>
-	<a href="/">Home</a> &nbsp;
-
+	<%  unless request.path_info == root_path  %>
+	<%= link_to "Home", root_path %>
 	<% end %>
 	<% if logged_in? %>
-	<a href="/users/<%= current_user.id%>">Hi, <%=current_user.full_name%></a> &nbsp;
-	<a href="/games/available">Available Games</a> &nbsp;
-	<a href="/games/new">Host A Game</a> &nbsp;
-	<form method="POST" action="/sessions">
-		<input type="hidden" name="_method" value="DELETE">
-		<input id="logout" type="submit" value="Log Out">
-	</form>
+	<%= link_to "Hi, #{current_user.full_name}", user_path(current_user) %>
+	<%= link_to "Available Games", games_available_path %>
+	<%= link_to "Host a Game", new_game_path%>
+	<%= button_to "Log out", session_path(current_user), method: :delete  %>
 
 	<% else %>
-	<a href="/sessions/new">Log In</a> &nbsp;
-	<a href="/users/new">Register</a></form>
+	<%= link_to "Log in", new_session_path %>
+	<%= link_to "Sign up", new_user_path %>
 	<% end %>
 
 </nav>
