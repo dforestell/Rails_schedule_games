@@ -1,10 +1,7 @@
 class GamesController < ApplicationController
 	def new
-		if logged_in?
-			@game = Game.new
-		else
-			redirect_to root_path
-		end
+		authenticate!
+		@game = Game.new
 	end
 
 end
