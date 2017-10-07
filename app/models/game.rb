@@ -4,6 +4,12 @@ class Game < ActiveRecord::Base
 
 	validates :time, :date, :field_address, presence: true
 
+	def format_date
+  	str_time = self.date + " " + self.time
+    time = Time.parse(str_time)
+    time.strftime("%A, %b %d %I:%M: %p")
+  end
+  
 	def self.future
     where("starts_at > ?", Time.current)
   end
