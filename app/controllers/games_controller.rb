@@ -16,6 +16,11 @@ class GamesController < ApplicationController
 		end
 	end
 
+	def index
+		@games = Game.where(traveler_id: nil)
+		@games.future.sort_by &:date
+	end
+
 end
 
 private
