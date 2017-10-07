@@ -7,4 +7,8 @@ module SessionHelper
 	def logged_in?
 		session[:id] != nil
 	end
+
+	def authenticate!
+    redirect_to root_path unless logged_in?
+  end
 end

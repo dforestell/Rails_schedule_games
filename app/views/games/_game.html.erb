@@ -1,0 +1,9 @@
+<div class="game">
+	<p>Game hosted by: <%= game.host.team_name %></p>
+	<p>Location: <%= game.field_address %> </p>
+	<p>Date: <%=game.format_date %></p>
+	<% if game.traveler %>
+		<p>Opponent: <%= game.traveler.team_name %></p>
+	<% end %>
+	<br>
+</div>
