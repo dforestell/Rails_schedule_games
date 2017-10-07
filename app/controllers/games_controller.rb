@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+
 	def new
 		authenticate!
 		@game = Game.new
@@ -18,8 +19,12 @@ class GamesController < ApplicationController
 
 	def index
 		@games = Game.where(traveler_id: nil)
-		@games.future.sort_by &:date
+		@games = @games.future.sort_by &:date
 	end
+
+	def show
+		@game = Game.find(params[:id])
+	end 
 
 end
 

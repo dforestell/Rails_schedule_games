@@ -9,8 +9,8 @@ class Game < ActiveRecord::Base
     time = Time.parse(str_time)
     time.strftime("%A, %b %d %I:%M: %p")
   end
-  
+
 	def self.future
-    where("starts_at > ?", Time.current)
+    where("date > ?", Time.current)
   end
 end

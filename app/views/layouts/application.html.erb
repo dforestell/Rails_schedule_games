@@ -14,7 +14,7 @@
 	<% end %>
 	<% if logged_in? %>
 	<%= link_to "Hi, #{current_user.full_name}", user_path(current_user) %>
-	<%= link_to "Available Games", games_available_path %>
+	<%= link_to "Available Games", games_path %>
 	<%= link_to "Host a Game", new_game_path%>
 	<%= button_to "Log out", session_path(current_user), method: :delete  %>
 
