@@ -6,17 +6,27 @@ class UsersController < ApplicationController
 
 	def create 
 		@user = User.new(registration_params)
-		if @user.valid?
+		if @user.save
 			session[:id] = @user.id
 			redirect_to games_path
 		else
 			render 'new'
-			flash[:error] = @user.errors.full_messages.each { |err| err }
 		end
 	end
 
 	def show
-
+		authenticate!
+		@user = current_user
+		@away_games = @user.away_games
+		@pending_games = []
+		@home_games = []
+		@user.hosted_games.each do |game|
+			if game.traveler == nil
+				@pending_games << game 
+			else
+				@home_games << game 
+			end
+		end
 	end
 
 	private
