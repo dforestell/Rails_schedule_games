@@ -6,11 +6,12 @@ class UsersController < ApplicationController
 
 	def create 
 		@user = User.new(registration_params)
-		if @user.save
+		if @user.valid?
 			session[:id] = @user.id
-			redirect_to '/games/available'
+			redirect_to games_path
 		else
 			render 'new'
+			flash[:error] = @user.errors.full_messages.each { |err| err }
 		end
 	end
 

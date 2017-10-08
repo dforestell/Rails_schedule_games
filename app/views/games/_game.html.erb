@@ -5,5 +5,9 @@
 	<% if game.traveler %>
 		<p>Opponent: <%= game.traveler.team_name %></p>
 	<% end %>
+	
+	<% if game.host.id == current_user.id && game.traveler == nil %>
+		<%= button_to "Delete", game_path(game), method: :delete %>
+	<% end %>  
 	<br>
 </div>
