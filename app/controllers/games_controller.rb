@@ -26,6 +26,13 @@ class GamesController < ApplicationController
 		@game = Game.find(params[:id])
 	end 
 
+	def destroy
+		@game = Game.find(params[:id])
+		@game.destroy
+		#flash "game has been deleted"
+		redirect_to user_path(current_user)
+	end
+
 end
 
 private
