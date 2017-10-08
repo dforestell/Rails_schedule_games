@@ -17,9 +17,17 @@ class UsersController < ApplicationController
 	def show
 		authenticate!
 		@user = current_user
-		@hosted_games = @user.hosted_games.where("traveler_id = nil")
+		@hosted_games = @user.hosted_games
 		@away_games = @user.away_games
-		@home_games = @user.hosted_games.where("traveler_id != nil")
+		@pending_games = []
+		@home_games = []
+		@hosted_games.each do |game|
+			if game.traveler == nil
+				@pending_games << game 
+			else
+				@home_games << game 
+			end
+		end
 	end
 
 	private
