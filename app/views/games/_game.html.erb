@@ -9,5 +9,9 @@
 	<% if game.host.id == current_user.id && game.traveler == nil %>
 		<%= button_to "Delete", game_path(game), method: :delete %>
 	<% end %>  
+
+	<% if logged_in? && current_user.id != game.host_id && game.traveler_id == nil  %>
+		<%= button_to "I'll Play You", game_path(game), method: :patch %>
+	<% end %>
 	<br>
 </div>

@@ -1,7 +1,9 @@
 <h1>Hi, <%= current_user.full_name %></h1>
 <h2>Home Games:</h2>
+<%= render @home_games, as: :game %>
 
 <h2>Away Games:</h2>
+<%= render @away_games, as: :game %>
 
 <h2>Pending Home Games:</h2>
 <%= render @pending_games, as: :game %>
