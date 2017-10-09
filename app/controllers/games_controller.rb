@@ -33,6 +33,13 @@ class GamesController < ApplicationController
 		redirect_to user_path(current_user)
 	end
 
+	def update
+		authenticate!
+		@game = Game.find(params[:id])
+		@game.update(traveler_id: current_user.id)
+		redirect_to game_path(@game)
+	end
+
 end
 
 private
