@@ -1,3 +1,8 @@
+body{
+  margin: 1.5%;
+  background-color: #ffcc99;
+}
+
 .game{
   background-color: lightgrey;
   text-align: center;
