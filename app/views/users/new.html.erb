@@ -1,29 +1,24 @@
-<h1>Sign Up</h1>
-<% if @errors %>
-	<ul>
-		<% @errors.each do |error| %>
-			<li> <%= error %> </li>
-		<% end %>
-	</ul>
-<% end %>
-<%= form_with url: users_path, model: User do |f| %>
-<div>
-	<%= f.text_field :full_name, :placeholder => "Full Name" %>
-</div>
+<div class="form">
+	<h1>Sign Up</h1>
+	<%= form_with  url: users_path, model: User do |f| %>
+	<div>
+		<%= f.text_field :full_name, :placeholder => "Full Name" %>
+	</div>
 
-<div>
-	<%= f.email_field :email, :placeholder => "Email" %>
-</div>
+	<div>
+		<%= f.email_field :email, :placeholder => "Email" %>
+	</div>
 
-<div>
-	<%= f.text_field :team_name, :placeholder => "Team Name" %>
-</div>
+	<div>
+		<%= f.text_field :team_name, :placeholder => "Team Name" %>
+	</div>
 
-<div>	
-	<%= f.password_field :password, :placeholder => "Password" %>
-</div>
+	<div>	
+		<%= f.password_field :password, :placeholder => "Password" %>
+	</div>
 
-<div>
-	<%= f.submit "Sign Up" %>
+	<div>
+		<%= f.submit "Sign Up" %>
+	</div>
+	<% end %>
 </div>
-<% end %>
