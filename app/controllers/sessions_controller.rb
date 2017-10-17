@@ -1,10 +1,12 @@
 class SessionsController < ApplicationController
+	
 	def create
-		user = User.find_by(email: params[:email])
-		if user && user.authenticate(params[:password])
-			session[:id] = user.id
+		@user = User.find_by(email: params[:email])
+		if @user && @user.authenticate(params[:password])
+			session[:id] = @user.id
 			redirect_to root_path
 		else
+			@error = "Email/Password Combo is incorrect"
 			render 'new'
 		end
 	end
