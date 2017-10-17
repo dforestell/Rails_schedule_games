@@ -18,8 +18,8 @@ class GamesController < ApplicationController
 	end
 
 	def index
-		@games = Game.where(traveler_id: nil)
-		@games = @games.future.sort_by &:date
+		@open_games = Game.where(traveler_id: nil).where.not(host_id: current_user.id)
+		@games = @open_games.future.sort_by &:date
 	end
 
 	def show
