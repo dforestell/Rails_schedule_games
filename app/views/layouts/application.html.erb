@@ -9,8 +9,8 @@
 </head>
 
 <nav>
-		<%  unless request.path_info == root_path  %>
 	<ul>
+		<%  unless request.path_info == root_path  %>
 		<li>
 			<%= link_to "Home", root_path, class: "nav"  %>
 		</li>
