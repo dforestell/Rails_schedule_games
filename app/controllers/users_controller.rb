@@ -29,6 +29,9 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def index
+	end
+
 	private
 
 	def registration_params
