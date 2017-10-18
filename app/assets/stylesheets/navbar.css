@@ -22,12 +22,3 @@ nav li a {
 	background-color: lightgrey;
 	text-decoration: none;
 }
-
-nav li button {
-	float: left;
-	border-right: 2px solid black;
-	padding: 0px 10px;
-	color: black;
-	background-color: lightgrey;
-	text-decoration: none;
-}
