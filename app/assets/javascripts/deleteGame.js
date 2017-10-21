@@ -7,6 +7,13 @@ var deleteGame = function(){
 		event.preventDefault();
 		var $deleteButton = $(this);
 		var $url =  $deleteButton.closest('form').attr('action');
-		console.log($url);
+		
+		var request = $.ajax({
+			method: 'Delete',
+			url: $url
+		})
+		request.done(function(response){
+			console.log(response)
+		})
 	})
 }
