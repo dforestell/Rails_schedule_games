@@ -7,7 +7,7 @@
 	<% end %>
 	
 	<% if game.host.id == current_user.id && game.traveler == nil %>
-		<%= button_to "Delete", game_path(game), method: :delete %>
+		<%= button_to "Delete", game_path(game), method: :delete, class: "delete" %>
 	<% end %>  
 
 	<% if logged_in? && current_user.id != game.host_id && game.traveler_id == nil  %>
