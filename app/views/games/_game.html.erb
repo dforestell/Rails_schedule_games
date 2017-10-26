@@ -1,6 +1,6 @@
 <div id="game_<%=game.id%>" class="game">
 	<p>Game hosted by: <%= game.host.team_name %></p>
-	<p>Location: <%= game.field_address %> </p>
+	<p>Location:<a href="https://maps.googleapis.com/maps/api/staticmap?center=<%=game.field_address %>&zoom=17&size=1200x800&maptype=roadmap&key=<%=ENV['GOOGLE_MAPS_KEY']%>" target="_blank"><%=game.field_address %></a> </p>
 	<p>Date: <%=game.format_date %></p>
 	<% if game.traveler %>
 		<p>Opponent: <%= game.traveler.team_name %></p>
