@@ -1,4 +1,4 @@
-<div class="game">
+<div id="game_<%=game.id%>" class="game">
 	<p>Game hosted by: <%= game.host.team_name %></p>
 	<p>Location: <%= game.field_address %> </p>
 	<p>Date: <%=game.format_date %></p>
@@ -7,7 +7,7 @@
 	<% end %>
 	
 	<% if game.host.id == current_user.id && game.traveler == nil %>
-		<%= button_to "Delete", game_path(game), method: :delete, class: "delete" %>
+		<%= button_to "Delete", game_path(game), method: :delete, class: "delete", remote: true %>
 	<% end %>  
 
 	<% if logged_in? && current_user.id != game.host_id && game.traveler_id == nil  %>

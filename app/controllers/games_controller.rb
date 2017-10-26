@@ -29,12 +29,12 @@ class GamesController < ApplicationController
 	def destroy
 		@game = Game.find(params[:id])
 		@game.destroy
-		if request.xhr?
-			status 200
-		else
-			redirect_to user_path(current_user)
-		end
-	end
+		respond_to do |format|
+    format.html { redirect_to user_path(current_user) }
+    format.js   { } 
+    end
+  end
+
 
 	def update
 		authenticate!
@@ -43,9 +43,9 @@ class GamesController < ApplicationController
 		redirect_to game_path(@game)
 	end
 
-end
-
 private
 	def new_game
 		params.require(:game).permit(:time, :date, :field_address)
 	end
+
+end
