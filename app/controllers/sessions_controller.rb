@@ -4,10 +4,11 @@ class SessionsController < ApplicationController
 		@user = User.find_by(email: params[:email])
 		if @user && @user.authenticate(params[:password])
 			session[:id] = @user.id
+			flash[:success] = "Hello, #{current_user.full_name}"
 			redirect_to root_path
 		else
-			@error = "Email/Password Combo is incorrect"
-			render 'new'
+			flash[:error] = "Invalid Username/password"
+			redirect_to new_session_path
 		end
 	end
 

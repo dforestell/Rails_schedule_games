@@ -43,9 +43,11 @@
 </nav>
 
 <body>
+	<br>
 	<% flash.each do |key, value| %>
     	<div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
+    <%= flash[:notice] %>
 	<%= yield %>
 </body>
 </html>
