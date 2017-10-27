@@ -8,9 +8,11 @@ class UsersController < ApplicationController
 		@user = User.new(registration_params)
 		if @user.save
 			session[:id] = @user.id
+			flash[:success] = "Welcome Aboard, lets schedule some games!"
 			redirect_to games_path
 		else
-			render 'new'
+			flash[:error] = @user.errors.full_messages.to_sentence
+			redirect_to new_user_path
 		end
 	end
 
