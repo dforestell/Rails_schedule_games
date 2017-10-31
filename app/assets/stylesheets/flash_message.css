@@ -2,6 +2,14 @@
 	background-color: lime;
 	text-align: center;
 	color: white;
-	font-style: Arial;
-	font-size: 25px
+	font-family: Bookman;
+	font-size: 25px;
+}
+
+.alert-error{
+	background-color: red;
+	text-align: center;
+	color: white;
+	font-family: Bookman;
+	font-size: 25px;
 }
