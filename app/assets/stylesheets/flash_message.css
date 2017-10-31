@@ -1,11 +1,13 @@
 .alert-success{
 	background-color: lime;
+}
+
+.success{
 	text-align: center;
 	color: white;
 	font-family: Bookman;
 	font-size: 25px;
 }
-
 .alert-error{
 	background-color: red;
 	width: 100%;
