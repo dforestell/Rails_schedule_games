@@ -8,6 +8,10 @@
 
 .alert-error{
 	background-color: red;
+	width: 100%;
+}
+
+.error{
 	text-align: center;
 	color: white;
 	font-family: Bookman;
