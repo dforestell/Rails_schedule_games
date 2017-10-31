@@ -1,1 +1,6 @@
-flash_message.css
+.alert-success{
+	background-color: lime;
+	text-align: center;
+	color: white;
+	font-style: Arial;
+}
