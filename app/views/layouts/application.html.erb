@@ -45,9 +45,7 @@
 <body>
 	<br>
 	<% flash.each do |key, value| %>
-    	<div class="alert-container">
-    		<div class="alert alert-<%= key %>"><%= value %></div>
-    	</div>
+    		<div class="alert alert-<%= key %>"><p class="<%= key %>"><%= value %></p></div>
     <% end %>
     <%= flash[:notice] %>
 	<%= yield %>

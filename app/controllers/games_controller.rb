@@ -13,7 +13,8 @@ class GamesController < ApplicationController
 		if @game.save
 			redirect_to @game 
 		else
-			redirect_to root_path
+			flash[:error] = @game.errors.full_messages.to_sentence
+			redirect_back(fallback_location: root_path)
 		end
 	end
 
