@@ -21,15 +21,8 @@ class UsersController < ApplicationController
 		if user == current_user
 			@user = user
 			@away_games = @user.away_games
-			@pending_games = []
-			@home_games = []
-			@user.hosted_games.each do |game|
-				if game.traveler == nil
-					@pending_games << game 
-				else
-					@home_games << game 
-				end
-			end
+			@pending_games = Game.where(host_id: current_user.id, traveler_id: nil)
+			@home_games = Game.where(host_id: current_user.id).where.not(traveler_id: nil)
 		else
 			flash[:error] = "That page doesn't belong to you"
 			redirect_to root_path
