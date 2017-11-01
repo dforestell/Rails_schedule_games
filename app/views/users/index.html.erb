@@ -1,10 +1,11 @@
 <br>
+<div class="container">
+	<h1 class="welcome"> Welcome!</h1>
+	<% if !logged_in? %>
+		<h3 class="welcome"> Login or sign up to schedule some games! </h3>
+	<% end %>
 
-<h1> Welcome!</h1>
-<% if !logged_in? %>
-	<h3> Login or sign up to schedule some games! </h3>
-<% end %>
-
-<% if logged_in? %>
- <h3>What are you waiting for? Schedule some games!</h3>
-<% end %>
+	<% if logged_in? %>
+		<h3 class="welcome">What are you waiting for? Schedule some games!</h3>
+	<% end %>
+</div>
