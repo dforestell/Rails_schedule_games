@@ -33,7 +33,7 @@ class GamesController < ApplicationController
 	end 
 
 	def destroy
-		@game = Game.find(params[:id])
+		@game = Game.efind(params[:id])
 		@game.destroy
 		respond_to do |format|
     format.html { redirect_to user_path(current_user) }
