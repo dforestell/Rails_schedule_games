@@ -17,17 +17,22 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		authenticate!
-		@user = current_user
-		@away_games = @user.away_games
-		@pending_games = []
-		@home_games = []
-		@user.hosted_games.each do |game|
-			if game.traveler == nil
-				@pending_games << game 
-			else
-				@home_games << game 
+		user = User.find(params[:id])
+		if user == current_user
+			@user = user
+			@away_games = @user.away_games
+			@pending_games = []
+			@home_games = []
+			@user.hosted_games.each do |game|
+				if game.traveler == nil
+					@pending_games << game 
+				else
+					@home_games << game 
+				end
 			end
+		else
+			flash[:error] = "That page doesn't belong to you"
+			redirect_to root_path
 		end
 	end
 
