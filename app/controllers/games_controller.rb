@@ -21,8 +21,7 @@ class GamesController < ApplicationController
 	def index
 		if logged_in?
 			@open_games = Game.where(traveler_id: nil).where.not(host_id: current_user.id)
-			@future_games = @open_games.future.sort_by &:date
-			@games = @future_games.reverse
+			@games = @open_games.future.sort_by &:date
 		else
     	flash[:error] = "You must be logged in to do that"
     	redirect_to root_path 
