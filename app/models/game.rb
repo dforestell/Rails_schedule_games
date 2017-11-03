@@ -7,7 +7,7 @@ class Game < ActiveRecord::Base
 	def format_date
   	str_time = self.date + " " + self.time
     time = Time.parse(str_time)
-    time.strftime("%A, %b %d %I:%M: %p")
+    time.strftime("%A, %B %d, %l:%M %p, %Y")
   end
 
 	def self.future
