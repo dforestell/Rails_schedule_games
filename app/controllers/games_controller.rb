@@ -29,6 +29,7 @@ class GamesController < ApplicationController
 	end
 
 	def show
+		authenticate!
 		@game = Game.find(params[:id])
 	end 
 

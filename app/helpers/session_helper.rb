@@ -10,7 +10,7 @@ module SessionHelper
 
 	def authenticate!
 		unless logged_in?
-    	flash[:error] = "You must be logged to do that" 
+    	flash[:error] = "You must be logged in to do that" 
     	redirect_to root_path unless logged_in?
   	end
   end
