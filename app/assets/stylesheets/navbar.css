@@ -1,20 +1,24 @@
+.navbar{
+	background-color: lightgrey;
+}
+
 nav {
+	position: relative;
 	width: 50%;
 	text-align: center;
   	margin: 0 auto;
 }
 
 nav ul {
-	margin: 0px;
-	padding: 0px;
+	position: relative;
+	padding: 2%;
 	list-style-type: none;
 }
 
 nav li {
-	font-size: 1em;
-	background-color: lightgrey;
-	border: 2px solid black;
-	display: inline;
+
+	font-size: 100%;
+	display: inline-block;
 }
 
 nav li a {
@@ -22,4 +26,8 @@ nav li a {
 	color: black;
 	background-color: none;
 	text-decoration: none;
+}
+
+nav li a:hover{
+	color: red;
 }
