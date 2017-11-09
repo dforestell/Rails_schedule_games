@@ -29,16 +29,22 @@ class GamesController < ApplicationController
 	end
 
 	def show
+		authenticate!
 		@game = Game.find(params[:id])
 	end 
 
 	def destroy
 		@game = Game.find(params[:id])
-		@game.destroy
-		respond_to do |format|
-    format.html { redirect_to user_path(current_user) }
-    format.js   { } 
-    end
+		if current_user.id == @game.host_id
+			@game.destroy
+			respond_to do |format|
+	    	format.html { redirect_to user_path(current_user) }
+	    	format.js   { } 
+	    end
+	  else
+	  	flash[:error] = "You can't delete other peoples games!"
+	  	redirect_back(fallback_location: root_path)
+	  end
   end
 
 
